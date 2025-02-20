@@ -39,21 +39,21 @@
     <p>Rock Paper Scissor Game</p>
     <button
       onclick="
-    playGame('Rock');
+    playGame('rock');
     "
     >
       Rock
     </button>
     <button
       onclick="
-    playGame('Paper');
+    playGame('paper');
     "
     >
       Paper
     </button>
     <button
       onclick="
-    playGame('Scissor');
+    playGame('scissor');
     "
     >
       Scissor
@@ -78,15 +78,7 @@
     function playGame(playerMove) {
       const computerChoice = pickComputerMove();
       let result = "";
-      if (playerMove === "scissor") {
-        if (computerChoice === "Rock") {
-          result = "You Lose";
-        } else if (computerChoice === "Paper") {
-          result = "You Win";
-        } else if (computerChoice === "Scissor") {
-          result = "Draw";
-        }
-      } else if (playerMove === "Rock") {
+      if (playerMove === "rock") {
         if (computerChoice === "Rock") {
           result = "Draw";
         } else if (computerChoice === "Paper") {
@@ -94,13 +86,21 @@
         } else if (computerChoice === "Scissor") {
           result = "You Win";
         }
-      } else if (playerMove === "Paper") {
+      } else if (playerMove === "paper") {
         if (computerChoice === "Rock") {
           result = "You Win";
         } else if (computerChoice === "Paper") {
           result = "Draw";
         } else if (computerChoice === "Scissor") {
           result = "You Lose";
+        }
+      } else if (playerMove === "scissor") {
+        if (computerChoice === "Rock") {
+          result = "You Lose";
+        } else if (computerChoice === "Paper") {
+          result = "You Win";
+        } else if (computerChoice === "Scissor") {
+          result = "Draw";
         }
       }
       if (result === "You Win") {
