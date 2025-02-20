@@ -4,57 +4,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: aqua;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 15px 52px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      p{
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .
+    </style>
   </head>
-  <p>Rock Paper Scissor</p>
-  <button
-    onclick="
-    const computerChoice=pickComputerMove();
-    let result='';
-    if(computerChoice==='Rock'){
-      result='Draw';
-    }else if(computerChoice==='Paper'){
-      result='You Lose';
-    }else if(computerChoice==='Scissor'){ 
-      result='You Win';
-    }
-    alert(`You picked rock and computer picked ${computerChoice}. ${result}`);
-  "
-  >
-    Rock
-  </button>
-  <button
-    onclick="
-  const computerChoice=pickComputerMove();
-  let result='';
-  if(computerChoice==='Rock'){
-    result='You Win';
-  }else if(computerChoice==='Paper'){
-    result='Draw';
-  }else if(computerChoice==='Scissor'){
-    result='You Lose';
-  }
-  alert(`You picked paper and computer picked ${computerChoice}. ${result}`);
-  "
-  >
-    Paper
-  </button>
-  <button
-    onclick="
-  const computerChoice=pickComputerMove();
-  let result='';
-  if(computerChoice==='Rock'){
-    result='You Lose';
-  }else if(computerChoice==='Paper'){
-    result='You Win';
-  }else if(computerChoice==='Scissor'){
-    result='Draw';
-  }
-  alert(`You picked scissor and computer picked ${computerChoice}. ${result}`);
-  "
-  >
-    Scissor
-  </button>
+  <div>
+    <p>Rock Paper Scissor</p>
+    <button
+      onclick="
+    playGame('Rock');
+    "
+    >
+      Rock
+    </button>
+    <button
+      onclick="
+    playGame('Paper');
+    "
+    >
+      Paper
+    </button>
+    <button
+      onclick="
+    playGame('Scissor');
+    "
+    >
+      Scissor
+    </button>
+  </div>
   <script>
+    function playGame(playerMove) {
+      const computerChoice = pickComputerMove();
+      let result = "";
+      if (playerMove === "scissor") {
+        if (computerChoice === "Rock") {
+          result = "You Lose";
+        } else if (computerChoice === "Paper") {
+          result = "You Win";
+        } else if (computerChoice === "Scissor") {
+          result = "Draw";
+        }
+      } else if (playerMove === "Rock") {
+        if (computerChoice === "Rock") {
+          result = "Draw";
+        } else if (computerChoice === "Paper") {
+          result = "You Lose";
+        } else if (computerChoice === "Scissor") {
+          result = "You Win";
+        }
+      } else if (playerMove === "Paper") {
+        if (computerChoice === "Rock") {
+          result = "You Win";
+        } else if (computerChoice === "Paper") {
+          result = "Draw";
+        } else if (computerChoice === "Scissor") {
+          result = "You Lose";
+        }
+      }
+      alert(
+        `You picked ${playerMove} and computer picked ${computerChoice}. ${result}`
+      );
+    }
     function pickComputerMove() {
       const randomNumber = Math.random();
       let computerChoice = "";
